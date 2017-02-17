@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta name="viewport" content="initial-scale=1, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0, width=device-width">
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>51返呗邀您飞机大战</title>
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <link rel="stylesheet" href="css/feiji.css?v2.3">
+  <!--百度统计代码-->
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?138025c5bfb14c36ad6f2e3e397da88c";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+</head>
+<body>
+<div id="main">
+    <canvas id="game-box"></canvas>
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"><div class="b">淘宝天猫购物上“51返呗”,所有商品都返利</div></div>
+            <div class="swiper-slide"><div class="b">“51返呗app精明购物好助手,最高可返80%</div></div>
+            <div class="swiper-slide"><div class="b">用“51返呗”购物，省钱更自如</div></div>
+            <div class="swiper-slide"><div class="b">“51返呗”购物比价，返利专家</div></div>
+        </div>
+    </div>
+
+    <div id="score-modal" class="score-modal">
+        <div class="head">
+            <div class="ph"></div>
+            <div class="sh1">平台红包还剩：</div>
+            <div class="sh2"><p id="sh2"></p></div>
+            <div class="sh3">恭喜大侠打下<span id="score"></span>分，在此次游戏中排名<span id="rank"></span>，并获得<span id="money"></span>现金红包奖励。</div>
+        </div>
+        <div class="cont">
+            <div class="phb">
+                <ul id="oUl">
+
+                </ul>
+            </div>
+        </div>
+        <div class="foot">
+            <div class="btn-share">先炫耀一下</div>
+            <div class="btn-open">领红包，并留名</div>
+        </div>
+        <div class="mask1 mask" style="display: none">
+            <div class="array"></div>
+            <div class="cont3">不分享，我的朋友怎么知道我打飞机这么厉害！</div>
+            <div class="x3"></div>
+        </div>
+    </div>
+
+    <div class="start-wrap">
+        <div class="btn-start"></div>
+        <div class="btn-dfgz">
+        </div>
+    </div>
+    <div class="dfgz">
+        <div class="x1"></div>
+        <div class="ph"></div>
+        <div class="btn-play3">开始游戏</div>
+        <div class="btn-download">51返呗app下载</div>
+    </div>
+    <div class="rank-wrap">
+        <div class="x"></div>
+        <div class="loginwrap" style="display: none">
+            <div class="head"></div>
+            <div class="cont">
+                <div class="input-wrap">
+                    <div class="input-set"><input type="number" id="phone" placeholder="请输入您手机号码"></div>
+                    <div class="input-set">
+                        <input type="number" id="phone_identfy" placeholder="手机验证码"><div id="btn-code">获取验证码</div>
+                    </div>
+                    <div class="input-set">
+                        <input type="pic" id="pic_identfy" placeholder="图形验证码"><div id="btn-yzm"><img src="/validimg.html" align="absmiddle" class="valicode_img" alt="点击刷新" onclick="this.src='/validimg.html'"></div>
+                    </div>
+                    <div class="input-set" id="nicknamewrap" style="display: none"><input type="text" id="nickname" placeholder="请输入昵称"></div>
+                    <div class="input-set"><div id="btn-login">立即抽奖</div></div>
+                    <div class="input-msg" style="display: none"></div>
+                </div>
+            </div>
+            <div class="foot"></div>
+        </div>
+        <div class="yeswrap" style="display: none">
+            <div class="head"></div>
+            <div class="cont">
+                <div class="content">
+                    <div class="hb-box1">
+                    </div>
+                    <p class="p1">恭喜英雄，您已榜上留名，您已累计中奖<span id="span2"></span>记得到app登记支付宝帐号，不然无法完成打款哦！</p>
+                    <div class="btn-draw">去登记打款帐号领钱花</div>
+                    <p class="p2">英雄，你今天还剩余<span id="span3"></span>抽奖机会</p>
+                    <div class="btn-share2">我要增加领奖机会</div>
+                </div>
+            </div>
+            <div class="foot"></div>
+            <div class="mask2 mask" style="display: none">
+                <div class="array"></div>
+                <div class="cont3">1. 有朋友通过您的链接首次进行游戏，即可增加一次领奖机会。</div>
+                <div class="cont2">2. 您朋友通过链接首次进行游戏所获得分数的10%将记录到您榜单分数当中，榜单总分=最高分+好友助力加分。</div>
+                <div class="x3"></div>
+            </div>
+        </div>
+        <div class="nowrap" style="display: none">
+            <div class="head"></div>
+            <div class="cont">
+                <div class="content">
+                    <div class="hb-box2">
+                    </div>
+                    <div class="txt-wrap">
+                        <p>太遗憾了！</p>
+                        <p>英雄今天已经把抽奖次数用完了！</p>
+                        <p>一天三次怎么够！点击下方按钮可增加次数！</p>
+                    </div>
+                    <div class="btn-share3">三次够了？还是多点好</div>
+                </div>
+            </div>
+            <div class="foot"></div>
+            <div class="mask3 mask" style="display: none">
+                <div class="array"></div>
+                <div class="cont3">1. 有朋友通过您的链接首次进行游戏，即可增加一次领奖机会。</div>
+                <div class="cont2">2. 您朋友通过链接首次进行游戏所获得分数的10%将记录到您榜单分数当中，榜单总分=最高分+好友助力加分。</div>
+                <div class="x3"></div>
+            </div>
+        </div>
+    </div>
+   <!--后台传值到隐藏域 ${timestamp!}   ${noncestr!}  ${signature!} -->
+    <input value='${timestamp!}' id="timestamp" type="hidden">
+    <input value=${noncestr!} id="noncestr" type="hidden">
+    <input value='${signature!}' id="signature" type="hidden">
+</div>
+<script src="js/jquery-1.8.3.min.js"></script>
+<script src="js/feiji.js?v2.3"></script>
+<script src="js/fastclick.js"></script>
+<script src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script src="js/swiper-3.4.0.jquery.min.js"></script>
+<!--微信分享配置-->
+<script>
+    wx.config({
+        debug: false,
+        appId: 'wx0910539ee8f2dec1',
+        timestamp: $("#timestamp").val(),
+        nonceStr: $("#noncestr").val(),//noncestr
+        signature: $("#signature").val(),//signature
+        jsApiList: ['onMenuShareTimeline','onMenuShareAppMessage','onMenuShareQQ']
+    });
+    wx.ready(function(){
+        var desc=  "据说这个游戏特壕，“打飞机”还能领红包，你敢不敢试试？";
+        var obj = {
+            title:"千万别玩“打飞机”，打着打着就和女朋友分手了！",
+            link: "https://www.edspay.com/feiji.html",
+            desc: desc,
+            imgUrl :'https://www.edspay.com/images/plain/51logo.png?v2.1',
+            success: function () {
+
+            },
+            cancel: function () {
+
+            }
+        };
+        wx.onMenuShareTimeline(obj);
+        wx.onMenuShareQQ(obj);
+        wx.onMenuShareAppMessage(obj);
+    })
+//微信分享失败以后弹出的内容
+    wx.error(function (res) {
+        alert(res.errMsg); 
+    });
+</script>
+
+</body>
+</html>
